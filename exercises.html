@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>roll the dice</title>
+  <link rel="stylesheet" href="./exerciseSytles.css">
+</head>
+
+<body>
+
+
+<!-- display player fields -->
+
+  <div id="background">
+    <div class="spielfeld" id="spielfeld-1">
+      <p class="message" id="namePlayer1">player 1</p>
+      <button class="button" id="button-player1" onclick="würfelnPlayer1 ()">roll the dice</button>
+      <img class="bild" id="bild-player1" src="StartbildWürfel.webp">
+      <p class="message" id="scorePlayer1">score: 0</p>
+    </div>
+    
+    <div class="spielfeld" id="spielfeld-2">
+      <p class="message" id="namePlayer2">player 2</p>
+      <button class="button" id="button-player2" onclick="würfelnPlayer2 ()">roll the dice</button>
+      <img class="bild" id="bild-player2" src="StartbildWürfel.webp">
+      <p class="message" id="scorePlayer2">score: 0</p>
+    </div>
+
+    <div class="spielfeld" id="spielfeld-3">
+      <p class="message" id="namePlayer3">player 3</p>
+      <button class="button" id="button-player3" onclick="würfelnPlayer3 ()">roll the dice</button>
+      <img class="bild" id="bild-player3" src="StartbildWürfel.webp">
+      <p class="message" id="scorePlayer3">score: 0</p>
+    </div>
+
+    <div class="spielfeld" id="spielfeld-4">
+      <p class="message" id="namePlayer4">player 4</p>
+      <button class="button" id="button-player4" onclick="würfelnPlayer4 ()">roll the dice</button>
+      <img class="bild" id="bild-player4" src="StartbildWürfel.webp">
+      <p class="message" id="scorePlayer4">score: 0</p>
+    </div>
+
+
+    <!-- display info field -->
+
+    <!-- display round-number -->
+
+    <div class="spielfeld" id="allgemein-round">
+      <p id="round">round:</p>
+      <p id="roundnumber"></p>
+    </div>
+
+
+        <!-- input number of players -->
+
+    <div class="spielfeld" id="allgemein1">
+      <p class="message" id="messageToUser"><u>Welcome, gamble-addicts !</u></p>
+      <p class="message" id="enter-players">how many players ?</p>
+      <div class="input-wrapper">
+        <select class="message" id="select-players" onclick ="wahlwiederholung ()">
+          <option value="1">1 player</option>
+          <option value="2" >2 players</option>
+          <option value="3">3 players</option>
+          <option value="4">4 players</option>
+        </select>
+        <button class="ok-button" id="ok-button-players" onclick="numberPlayers ()">ok</button>
+      </div>
+      <button class="button" id="button-next1" onclick= "next1 ()">NEXT</button>
+    </div>
+
+
+      <!-- input player names -->
+
+      <div class="spielfeld" id="allgemein2">
+        <p class="message" id="enter-player-names">enter player-names:</p>
+        <div class="input-wrapper" id="wrapper1">
+          <input class="input" type="text" id="inputNamePlayer1" placeholder="player 1" maxlength="12">
+          <button class="ok-button" id="ok-button1" onclick="inputPlayerName1()">ok</button>
+          <button class="trash-button" id="trash-button1" onclick="trashPlayerName1()">&#128465;</button>
+        </div>
+        <div class="input-wrapper" id="wrapper2">
+          <input class="input" type="text" id="inputNamePlayer2" placeholder="player 2" maxlength="12">
+          <button class="ok-button" id="ok-button2" onclick="inputPlayerName2()">ok</button>
+          <button class="trash-button" id="trash-button2" onclick="trashPlayerName2()">&#128465;</button>
+        </div>
+        <div class="input-wrapper" id="wrapper3">
+          <input class="input" type="text" id="inputNamePlayer3" placeholder="player 3" maxlength="12">
+          <button class="ok-button" id="ok-button3" onclick="inputPlayerName3()">ok</button>
+          <button class="trash-button" id="trash-button3" onclick="trashPlayerName3()">&#128465;</button>
+        </div>
+        <div class="input-wrapper" id="wrapper4">
+          <input class="input" type="text" id="inputNamePlayer4" placeholder="player 4" maxlength="12">
+          <button class="ok-button" id="ok-button4" onclick="inputPlayerName4()">ok</button>
+          <button class="trash-button" id="trash-button4" onclick="trashPlayerName4()">&#128465;</button>
+        </div>
+      
+        <button class="button" id="button-next2" onclick= "next2 ()">NEXT</button>
+      </div>
+  
+
+      <!-- input number of rounds -->
+
+    <div class="spielfeld" id="allgemein3">
+      <p class="message" id="messageToUser"><u>Welcome, gamble-addicts !</u></p>
+      <p class="message" id="rounds">how many rounds ?</p>
+      <div class="input-wrapper">
+        <select class="message" id="select-rounds" onclick ="wahlwiederholung ()">
+          <option value="1">1 round</option>
+          <option value="2">2 rounds</option>
+          <option value="3">3 rounds</option>
+          <option value="4">4 rounds</option>
+          <option value="5">5 rounds</option>
+          <option value="6">6 rounds</option>
+          <option value="7">7 rounds</option>
+          <option value="8">8 rounds</option>
+          <option value="9">9 rounds</option>
+          <option value="10">10 rounds</option>
+        </select>
+        <button class="ok-button" id="ok-button-rounds" onclick="numberRounds ()">ok</button>
+      
+      </div>
+      <button class="button" id="button-start" onclick="start ()">START</button>
+
+    </div>
+
+
+
+
+        <!-- display winner of round -->
+
+        <div class="spielfeld" id="allgemein4">
+          <p class="message" id="messageToUser"><u>this round goes to:</u></p>
+          <p class="message" id="winner-message"></p>
+          <!--<div class="input-wrapper">
+            <select class="message" id="select-players" onclick ="wahlwiederholung ()">
+              <option value="1">1 player</option>
+              <option value="2" >2 players</option>
+              <option value="3">3 players</option>
+              <option value="4">4 players</option>
+            </select>
+            <button class="ok-button" id="ok-button-players" onclick="numberPlayers ()">ok</button>
+          </div>-->
+          <button class="button" id="button-start" onclick="start ()">Go On</button>
+         </div>
+
+
+        <!-- display winner of game -->
+
+        <div class="spielfeld" id="allgemein5">
+          <p class="message" id="messageToUser"><u>the winner of the game is:</u></p>
+          <p class="message" id="winner-message5"></p>
+          <p class="message" id="winner1"></p>
+          <p class="message" id="winner2"></p>
+          <p class="message" id="winner3"></p>
+          <p class="message" id="winner4"></p>
+          <button class="button" id="button-new-game" onclick="newGame ()">new game</button>
+        </div>
+
+
+        <!-- display new game -->
+
+        <div class="spielfeld" id="new-game">
+          <p class="message" id="messageToUser"><u>same players as last game ?</u></p>
+          <div class="input-wrapper">
+            <button class="ok-button" id="same-players" onclick="newGameSamePlayers ()">yes</button>
+            <button class="ok-button" id="other-players" onclick="newGameOtherPlayers ()">no</button>
+          </div>
+          <!--<button class="button" id="button-next1" onclick= "next1 ()">NEXT</button>-->
+        </div>
+    
+
+
+    
+  </div>
+    
+  <script type="text/javascript" src="exerciseLogic.js"></script> 
+</body>
+</html>
